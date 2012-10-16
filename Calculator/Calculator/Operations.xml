@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<operations>
+  <operation name="Addition" value="+" operands="2" priority="1" placement="base.dll" type="base.Operations" />
+  <operation name="Subtraction" value="-" operands="2" priority="1" placement="base.dll" type="base.Operations"/>
+  <operation name="Multiplication" value="*" operands="2" priority="2" placement="base.dll" type="base.Operations" />
+  <operation name="Division" value="/" operands="2" priority="2" placement="base.dll" type="base.Operations" />
+
+  <operation name="Sin" value="sin" operands="1" placement="trigonometric.dll" type="trigonometric.Operations" />
+  <operation name="Cos" value="cos" operands="1" placement="trigonometric.dll" type="trigonometric.Operations" />
+</operations>
