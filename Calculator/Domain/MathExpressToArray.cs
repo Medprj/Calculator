@@ -4,16 +4,27 @@ using System.Collections.Generic;
 
 namespace Domain
 {
+    /// <summary>
+    /// Конвертирует входное математическое выражение из строки в массив
+    /// </summary>
     public class MathExpressToArray : IConvertToArray
     {
         private readonly ITypeElement typeElem;
+        /// <summary>
+        /// Подставить класс реализующий интерфейс
+        /// </summary>
+        /// <param name="typeElement">для определения типа символа</param>
         public MathExpressToArray(ITypeElement typeElement)
         {
             typeElem = typeElement;
         }
 
-        // Метод конвертирует входное математическое выражение из строки в массив
-        // string mathExpression - исходное математическое выражение
+        /// <summary>
+        /// Конвертирует входное математическое выражение из строки в массив
+        /// </summary>
+        /// <param name="baseMathExpress">исходное математическое выражение в виде строки</param>
+        /// <returns>математическое выражение в виде массива</returns>
+        /// <exception cref="Exception"></exception>
         public string[] ToArray(string baseMathExpress)
         {
             baseMathExpress = baseMathExpress.Replace(".", ",");

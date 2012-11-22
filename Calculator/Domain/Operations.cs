@@ -2,14 +2,34 @@ using BusinessLogic;
 
 namespace Domain
 {
-    // структура для хранения сведений о математических операций и функциях
+    /// <summary>
+    /// Сведений о математических операциях и функциях
+    /// </summary>
     public class Operations : IOperations
     {
-        public string Name { get; set; } // имя операции (имя метода)
-        public string Value { get; set; } // операция
-        public int Operands { get; set; }  // количество операндов
-        public int Priority { get; set; }  // приоритет
-        public string Placement { get; set; } // имя сборки, где находится соответствующий метод
-        public string Type { get; set; }  // полное имя типа
+        /// <summary>
+        /// имя операции (имя метода)
+        /// </summary>
+        public string Name { get; set; } 
+        /// <summary>
+        /// операция
+        /// </summary>
+        public string Value { get; set; }  
+        /// <summary>
+        /// количество операндов
+        /// </summary>
+        public int Operands { get; set; }  
+        /// <summary>
+        /// приоритет
+        /// </summary>
+        public int Priority { get; set; }  
+        /// <summary>
+        /// имя сборки, где находится соответствующий метод
+        /// </summary>
+        public string Placement { get; set; }  
+        /// <summary>
+        /// полное имя типа
+        /// </summary>
+        public string Type { get; set; }  
     }
 }

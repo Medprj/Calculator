@@ -1,23 +1,25 @@
 ﻿using System;
 using Domain;
 
-// Calculator -  консольный калькулятор, который принимает входную строку, 
-// содержащую математическое выражение (+, -, *, /, скобки) и выводит в консоль его результат.
-// Автор: Медведев Александр Анатольевич
 namespace Calculator
 {
+    /// <summary>
+    /// Calculator -  консольный калькулятор, который принимает входную строку, 
+    /// содержащую математическое выражение (+, -, *, /, скобки) и выводит в консоль его результат.
+    /// Автор: Медведев Александр Анатольевич
+    /// </summary>
     public static class Program
     {
+        /// <summary>
+        /// Точка входа в программу
+        /// </summary>
         public static void Main()
         {
-            // Открыть и получить данные из файла, в котором
-            // хранится перечень математических операций
-            // и их атрибуты. В случае неудачи - уведомить пользователя 
-            // и выйти из программы
-            Operation<Operations> operation;
+            BusinessLogic.Calculator calc;
+            var context = new Context(new ImplStrategy());
             try
             {
-                operation = new Operation<Operations>();
+                calc = context.ExecuteOperation();
             }
             catch (Exception e)
             {
@@ -25,13 +27,6 @@ namespace Calculator
                 Console.ReadKey();
                 return;
             }
-
-
-            var typeElem = new TypeElem();
-
-            var calc = new BusinessLogic.Calculator(new MathExpressToArray(typeElem),
-                                                    new MathExpressToRpn(operation, typeElem),
-                                                    new CalculateRpn(new Domain.Action(), operation, typeElem));
 
 
             var exit = false; // признак выхода из программы

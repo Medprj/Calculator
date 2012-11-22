@@ -1,14 +1,37 @@
 ﻿namespace Domain
 {
-    // тип символа
+    /// <summary>
+    /// Тип символа
+    /// </summary>
     public enum Types
     {
-        Unknown,          // неизвестный символ
-        Number,            // число
-        Separator,      // знак пунктуации
-        Func,             // функция
-        Operation,        // математическая операция
-        OpenParenthesis,  // открывающаяся круглая скобка 
-        CloseParenthesis, // закрывающаяся круглая скобка
+        /// <summary>
+        /// неизвестный символ
+        /// </summary>
+        Unknown,        
+        /// <summary>
+        /// число
+        /// </summary>
+        Number,           
+        /// <summary>
+        /// знак пунктуации
+        /// </summary>
+        Separator,     
+        /// <summary>
+        /// функция
+        /// </summary>
+        Func,            
+        /// <summary>
+        /// математическая операция
+        /// </summary>
+        Operation,       
+        /// <summary>
+        /// открывающаяся круглая скобка 
+        /// </summary>
+        OpenParenthesis, 
+        /// <summary>
+        /// закрывающаяся круглая скобка
+        /// </summary>
+        CloseParenthesis,
     }
 }

@@ -4,19 +4,31 @@ using BusinessLogic;
 
 namespace Domain
 {
+    /// <summary>
+    /// Конвертировать математическое выражение из инфиксной записи в постфиксную
+    /// </summary>
     public class MathExpressToRpn : IConvertToRpn
     {
         private readonly IOperation op;
         private readonly ITypeElement typeElem;
 
+        /// <summary>
+        /// Подставить классы реализующие интерфейсы
+        /// </summary>
+        /// <param name="op">для получения сведений о математической операции</param>
+        /// <param name="typeElem">для определения типа символа</param>
         public MathExpressToRpn(IOperation op, ITypeElement typeElem)
         {
             this.op = op;
             this.typeElem = typeElem;
         }
 
-        // Метод конвертирует математическое выражение из инфиксной записи в постфиксную
-        // string[] mathExpressAsArray - входное математическое выражение
+        /// <summary>
+        /// Конвертировать математическое выражение из инфиксной записи в постфиксную
+        /// </summary>
+        /// <param name="mathExpressAsArray">исходное математическое выражение</param>
+        /// <returns>математическое выражение в обратной польской записи в виде массива</returns>
+        /// <exception cref="Exception">Исключение возникает, если неправильно записано математическое выражение</exception>
         public string[] ToRpn(string[] mathExpressAsArray)
         {
             var mathExpress = new List<string>(); // выходная строка

@@ -4,12 +4,21 @@ using BusinessLogic;
 
 namespace Domain
 {
+    /// <summary>
+    /// Вычислить математическое выражение, записанное в обратной польской записи
+    /// </summary>
     public class CalculateRpn : ICalculateRpn
     {
         private readonly IAction act;
         private readonly IOperation op;
         private readonly ITypeElement typeElem;
 
+        /// <summary>
+        /// Подставить классы реализующие интерфейсы
+        /// </summary>
+        /// <param name="act">для подключения сборки, содержащей методы соответствующие математическим операциям</param>
+        /// <param name="op">для получения сведений о математической операции</param>
+        /// <param name="typeElem">для определения типа символа</param>
         public CalculateRpn(IAction act, IOperation op, ITypeElement typeElem)
         {
             this.act = act;
@@ -17,8 +26,11 @@ namespace Domain
             this.typeElem = typeElem;
         }
 
-        // вычисление выражения в обратной польской записи
-        // string[] mathExpressAsRpn - входное выражение
+        /// <summary>
+        /// Вычислить выражения в обратной польской записи
+        /// </summary>
+        /// <param name="mathExpressAsRpn">исходное выражение</param>
+        /// <returns>результат вычислений</returns>
         public string Calculate(string[] mathExpressAsRpn)
         {
             var stack = new Stack<string>();
@@ -69,12 +81,16 @@ namespace Domain
             }
             throw new Exception("Неправильное математическое выражение");
         }
-    
-        // Выполнить математическое операцию
-        // string nameMethodOperation - имя метода = имя функции
-        // double[] operands - операнды
-        // string fileNameAssembly - имя файла *.dll
-        // string fullTypeName - полное имя типа
+             
+        /// <summary>
+        /// Подключить сборку, содержащую методы соответствующие математическим операциям
+        /// и выполнить математические вычисления
+        /// </summary>
+        /// <param name="nameMethodOperation">имя метода = имя функции</param>
+        /// <param name="operands">операнды</param>
+        /// <param name="fileName"> имя файла (*.dll)</param>
+        /// <param name="fullTypeName">полное имя типа</param>
+        /// <returns>результат вычисления</returns>
         public string ExecMathOperation(string nameMethodOperation, double[] operands, string fileName, string fullTypeName)
         {
             return act.Exec(nameMethodOperation, operands, fileName, fullTypeName);

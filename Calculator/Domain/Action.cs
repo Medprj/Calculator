@@ -4,17 +4,22 @@ using BusinessLogic;
 
 namespace Domain
 {
+    /// <summary>
+    /// Подключить *.dll и вызывать метод соответствующий математической операции
+    /// </summary>
     public class Action : IAction
     {
-        // метод для подключения *.dll с набором методов
-        // string operation - операция (имя метода)
-        // double[] parameters - операнды
-        // string fileName - имя файла-сборки
-        // string type - тип
-        // метод возвращает 0 в случае успеха или номер ошибки
+        /// <summary>
+        /// Метод для подключения *.dll с набором математических операций
+        /// </summary>
+        /// <param name="operation">математическая операция (имя метода)</param>
+        /// <param name="parameters">операнды</param>
+        /// <param name="fileName">имя файла-сборки</param>
+        /// <param name="type">тип (базовый класс)</param>
+        /// <returns>результат вычисления</returns>
         public string Exec(string operation, double[] parameters, string fileName, string type)
         {
-            // Подключаем файл сборки(в данном случаи *.dll)
+            // Подключить файл сборки(в данном случаи *.dll)
             Assembly assembly; 
             try
             {
@@ -25,7 +30,7 @@ namespace Domain
                 throw new Exception("Не удалось открыть файл: " + fileName);
             }
 
-            //  получаем объект Type, предоставляющий указанный тип.
+            // Получить объект Type, предоставляющий указанный тип.
             Type assemblyClass;
             try
             {
@@ -54,18 +59,17 @@ namespace Domain
             var paramaters = new object[parameters.Length];
             for (var i = 0; i < parameters.Length; i++) { paramaters[i] = parameters[i]; }
 
-            // Выполняем математическую операцию
+            // Выполнить математическую операцию
             string result;
             try
             {
-
                 result = assembMethod.Invoke(assemblyClass, paramaters).ToString();
             }
             catch(TargetInvocationException e)
             {
                throw new Exception(e.InnerException.Message);
             }
-            // в случае успеха, возвращаем результат
+            // В случае успеха, возвратить результат
             return result;
         }
     }

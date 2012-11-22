@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\Domain.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -42,6 +43,8 @@
   <ItemGroup>
     <Compile Include="Action.cs" />
     <Compile Include="CalculateRpn.cs" />
+    <Compile Include="Context.cs" />
+    <Compile Include="ImplStrategy.cs" />
     <Compile Include="MathExpressToArray.cs" />
     <Compile Include="MathExpressToRpn.cs" />
     <Compile Include="Operation.cs" />
